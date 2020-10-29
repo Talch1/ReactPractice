@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import LoginClass from "./component/LoginClass";
+import LoginControlled from "./component/LoginControlled";
+import Login from "./component/Login";
+import RegistretControlClass from './component/RegistretControlClass'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-3">
+            <h3>LoginControlled</h3>
+            <LoginControlled />
+          </div>
+          <div className="col-3">
+            <h3>Login</h3>
+            <Login />
+          </div>
+          <div className="col-3">
+            <h3>LoginClass</h3>
+            <LoginClass />
+          </div>
+           <div className="col-3">
+            <h3>RegistretControlClass</h3>
+            <RegistretControlClass />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
