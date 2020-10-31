@@ -1,28 +1,31 @@
 import React, { useState } from "react";
+import useFormState from "../utils/form-hook";
 
 export default () => {
-  const [loginForm, setloginForm] = useState({
-    email: "gyhgcvb@jbmbm.com",
-    password: "1234567",
-  });
+  // const [loginForm, setloginForm] = useState({
+  //   email: "gyhgcvb@jbmbm.com",
+  //   password: "1234567",
+  // });
 
-  const updateFormState = (event) =>{
-    setloginForm({
-      ...loginForm,
-      [event.target.name] : event.target.value
-    });
-  }
-  const handleSubmit = (event)=>{
-    event.preventDefault();
- 
-    console.log(`${loginForm.email}  ${loginForm.password}` );
- }
+  // const updateFormState = (event) =>{
+  //   setloginForm({
+  //     ...loginForm,
+  //     [event.target.name] : event.target.value
+  //   });
+  // }
+  const handleSubmit = (event) => {
+    console.log(`${formValues.email}  ${formValues.password}`);
+  };
+  const [updateFormState, handleFormSubmit, formValues] = useFormState(
+    { email: "gyhgcvb@jbmbm.com", password: "1234567" },
+    handleSubmit
+  );
   return (
-    <form onSubmit ={handleSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <div className="form-group">
         <label htmlFor="email-input">Email</label>
         <input
-          value={loginForm.email}
+          value={formValues.email}
           onChange={updateFormState}
           className="form-control"
           type="email"
@@ -33,8 +36,8 @@ export default () => {
       <div className="form-group">
         <label htmlFor="password-input">Password</label>
         <input
-          value={loginForm.password}
-          onChange = {updateFormState}
+          value={formValues.password}
+          onChange={updateFormState}
           className="form-control"
           type="password"
           id="password-input"
